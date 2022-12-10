@@ -25,3 +25,12 @@ This linear model predicts the mpg of MechCar prototypes relatively effectively.
 ### Does the current manufacturing data meet the design specification that the variance of the suspension coils must not exceed 100 pounds per square inch in all manufacturing lots in total and each lot individually? Why or why not?
 
 The variance of the suspension coils in all manufacturing lots is 62.29, which does not exceed the required specification. However, breaking the summary statistics down by lot shows that lots 1 and 2 have significantly lower variances than the whole, but lot 3 has a variance of 170.29, which is significantly higher than the required specification. This indicates that the current manufacturing data does not meet the design specification for lot 3.
+
+## T-Tests on Suspension Coils
+![Figure 4](Figures/Fig4.png)
+
+Performing a t-test to determine if the PSI across all manufacturing lots is statistically different from the population mean of 1500 returns a p-value of 0.06, which is higher than 0.05 and indicates that the PSI across all manufacturing lots is statistically different from the population mean of 1500. However, this is not a largely significant difference as the t-test estimates a mean of 1498.78.
+
+![Figure 5](Figures/Fig5.png)
+![Figure 6](Figures/Fig6.png)
+![Figure 7](Figures/Fig7.png)
