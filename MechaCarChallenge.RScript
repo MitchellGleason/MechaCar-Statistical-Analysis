@@ -10,13 +10,12 @@ total_summary <- MechaCar_sus_df %>% summarize(mean = mean(PSI), median = median
 
 lot_summary <- MechaCar_sus_df %>% group_by(Manufacturing_Lot) %>% summarize(mean = mean(PSI), median = median(PSI), variance = var(PSI), sd = sd(PSI))
 
-t.test(MechaCar_sus_df$PSI)
+t.test(MechaCar_sus_df$PSI, mu=1500)
 
-lot1_psi <- MechaCar_sus_df[MechaCar_sus_df$Manufacturing_Lot == 'Lot1', c("PSI")]
+lot1_psi <- subset(MechaCar_sus_df, Manufacturing_Lot== 'Lot1')
+lot2_psi <- subset(MechaCar_sus_df, Manufacturing_Lot== 'Lot2')
+lot3_psi <- subset(MechaCar_sus_df, Manufacturing_Lot== 'Lot3')
 
-lot2_psi <- MechaCar_sus_df[MechaCar_sus_df$Manufacturing_Lot == 'Lot2', c("PSI")]
-
-lot3_psi <- MechaCar_sus_df[MechaCar_sus_df$Manufacturing_Lot == 'Lot3', c("PSI")]
-
-
-t.test(MechaCar_sus_df$PSI, subset =  lot1_psi)
+t.test(lot1_psi$PSI, mu=1500)
+t.test(lot2_psi$PSI, mu=1500)
+t.test(lot3_psi$PSI, mu=1500)
