@@ -12,6 +12,11 @@ lot_summary <- MechaCar_sus_df %>% group_by(Manufacturing_Lot) %>% summarize(mea
 
 t.test(MechaCar_sus_df$PSI)
 
-lot1_psi <- MechaCar_sus_df[Manufacturing_Lot == 'Lot1', 3]
+lot1_psi <- MechaCar_sus_df[MechaCar_sus_df$Manufacturing_Lot == 'Lot1', c("PSI")]
 
-t.test(MechaCar_sus_df$PSI, subset =  MechaCar_sus_df$Manufacturing_Lot == 'Lot3')
+lot2_psi <- MechaCar_sus_df[MechaCar_sus_df$Manufacturing_Lot == 'Lot2', c("PSI")]
+
+lot3_psi <- MechaCar_sus_df[MechaCar_sus_df$Manufacturing_Lot == 'Lot3', c("PSI")]
+
+
+t.test(MechaCar_sus_df$PSI, subset =  lot1_psi)
