@@ -1,11 +1,17 @@
 library(dplyr)
 
 MechaCar_mpg_df <- read.csv('MechaCar_mpg.csv')
-summary(lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD, MechaCar_df))
+
+summary(lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD, MechaCar_mpg_df))
 
 MechaCar_sus_df <- read.csv('Suspension_Coil.csv')
+
 total_summary <- MechaCar_sus_df %>% summarize(mean = mean(PSI), median = median(PSI), variance = var(PSI), sd = sd(PSI))
+
 lot_summary <- MechaCar_sus_df %>% group_by(Manufacturing_Lot) %>% summarize(mean = mean(PSI), median = median(PSI), variance = var(PSI), sd = sd(PSI))
+
 t.test(MechaCar_sus_df$PSI)
-lot1 <- MechaCar_sus_df[Manufacturing_Lot=='Lot1', 3]
+
+lot1_psi <- MechaCar_sus_df[Manufacturing_Lot == 'Lot1', 3]
+
 t.test(MechaCar_sus_df$PSI, subset =  MechaCar_sus_df$Manufacturing_Lot == 'Lot3')
